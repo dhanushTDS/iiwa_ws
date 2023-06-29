@@ -1,0 +1,13 @@
+controller_list:
+  - name: iiwa_pink_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: True
+    joints:
+      - iiwa_pink_joint_1
+      - iiwa_pink_joint_2
+      - iiwa_pink_joint_3
+      - iiwa_pink_joint_4
+      - iiwa_pink_joint_5
+      - iiwa_pink_joint_6
+      - iiwa_pink_joint_7

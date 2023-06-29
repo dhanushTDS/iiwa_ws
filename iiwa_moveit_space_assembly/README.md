@@ -1,0 +1,3 @@
+->have to make the end effector also an kinematic chain later.
+-> Or else remove the IK solver for the end effector, do research on whether doing this abstraction is even important.
+-> 
