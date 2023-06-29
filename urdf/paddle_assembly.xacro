@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find iiwa_description)/urdf/utilities.xacro" />
+
+    <xacro:macro name="paddle_assembly" params="robot_name parent">
+        <joint name="${robot_name}_paddle_assembly_joint" type="fixed">
+            <parent link="${parent}" />
+            <child link="${robot_name}_paddle_assembly" />
+            <origin xyz="-0.1015 0.05 0" rpy="1.5708 0 0" />
+        </joint>
+
+        <link name="${robot_name}_paddle_assembly">
+            <inertial>
+                <origin xyz="0 0 0 " rpy="0 0 0" />
+                <mass value="1" />
+                <inertia ixx="0.04010" ixy="0" ixz="0" iyy="0.03365" iyz="0" izz="0.0427" />
+            </inertial>
+
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh scale="0.001 0.001 0.001" filename="package://iiwa_cam/src/meshes/paddle_assembly.stl" />
+                </geometry>
+                <material name="Grey" />
+            </visual>
+
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh scale="0.001 0.001 0.001" filename="package://iiwa_cam/src/meshes/paddle_assembly.stl" />
+                </geometry>
+                <material name="Grey" />
+            </collision>
+        </link>
+    </xacro:macro>
+
+</robot>

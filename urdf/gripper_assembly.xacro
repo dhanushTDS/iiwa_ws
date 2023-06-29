@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find iiwa_description)/urdf/utilities.xacro" />
+
+    <xacro:macro name="gripper_assembly" params="robot_name parent">
+        <joint name="${robot_name}_gripper_assembly_joint" type="fixed">
+            <parent link="${parent}" />
+            <child link="${robot_name}_gripper_assembly" />
+            <origin xyz="-0.1 -0.07 -0.037" rpy="1.5708 0 1.5708" />
+        </joint>
+
+        <link name="${robot_name}_gripper_assembly">
+            <inertial>
+                <origin xyz="0 0 0 " rpy="0 0 0" />
+                <mass value="1" />
+                <inertia ixx="0.07773" ixy="0" ixz="0" iyy="0.03740" iyz="0" izz="0.10914" />
+            </inertial>
+
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh scale="0.001 0.001 0.001" filename="package://iiwa_cam/src/meshes/gripper_assembly.stl" />
+                </geometry>
+                <material name="Grey" />
+            </visual>
+
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh scale="0.001 0.001 0.001" filename="package://iiwa_cam/src/meshes/gripper_assembly.stl" />
+                </geometry>
+                <material name="Grey" />
+            </collision>
+        </link>
+    </xacro:macro>
+
+</robot>
